@@ -17,7 +17,7 @@ class SideBar extends Component {
             id="sidebar"
           >
             <div className="nav-container">
-              <a className="navbar-brand" href="index.html">
+              <a className="navbar-brand" href="/">
                 <img
                   src="logo/Spotify_Logo.png"
                   alt="Spotify_Logo"

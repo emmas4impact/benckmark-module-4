@@ -16,7 +16,7 @@ function App() {
     <Sidebar />
     <Route path="/" exact component={HomePage} />
     <Route path="/artistPage:id" exact component={Artistpage} />
-    <Route path="/album/:id" exact component={AlbumPage } />
+    <Route path="/album/:id" exact component={AlbumPage} />
     <FooterPage />
     </Router>
   

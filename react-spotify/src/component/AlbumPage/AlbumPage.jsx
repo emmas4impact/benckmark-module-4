@@ -3,11 +3,31 @@ import {Link, withRouter} from 'react-router-dom';
 
 class AlbumPage extends Component{
     state = {
-        songs: [],
+        albums: [],
         loading: true
     }
-    componentDidMount =()=>{
-        const songId = this.props.match.params.id;
+    componentDidMount = () => {
+        const albumId = this.props.match.params.id;
+        let headers = new Headers({
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            "x-rapidapi-key":
+              "8275c582bamshd83a3179dd00459p19f0b2jsn94c889368579",
+          });
+  
+          fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId, {
+            method: "GET",
+            headers,
+          })
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              }
+            })
+            .then((album) => {
+             
+              for (let i = 0; i < album.tracks.data.length; i++) {
+              }
+            });
        
         
     }

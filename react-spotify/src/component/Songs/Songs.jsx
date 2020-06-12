@@ -29,10 +29,10 @@ class Songs extends Component {
               <Image className="img-fluid" src={this.props.song.album.cover_medium} alt={this.props.song.artist.name} />
             </a>
             <p> 
-               <Link to="/artistPage" className="nav-link">Album: {this.props.song.album.title}</Link>
+               <Link to={"/artistPage"+ this.props.song.id} className="nav-link">Album: {this.props.song.album.title}</Link>
                
               
-               <Link to="/album/:id" className="nav-link">Artist: {this.props.song.artist.name}</Link>
+               <Link to={"/album/"+ this.props.song.id} className="nav-link">Artist: {this.props.song.artist.name}</Link>
             </p>
         </div>
     
