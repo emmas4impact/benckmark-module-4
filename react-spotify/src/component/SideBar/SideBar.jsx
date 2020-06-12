@@ -40,7 +40,7 @@ class SideBar extends Component {
                 <div className="navbar-nav">
                   <ul>
                     <li>
-                      <a className="nav-item nav-link" href="index.html"
+                      <a className="nav-item nav-link" href="/"
                         ><i className="fas fa-home fa-lg"></i>&nbsp; Home
                       </a>
                     </li>
