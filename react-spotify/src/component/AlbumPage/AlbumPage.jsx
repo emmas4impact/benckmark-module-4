@@ -5,6 +5,8 @@ import { Col, Image, Modal, Button, Spinner } from "react-bootstrap";
 class AlbumPage extends Component{
     state = {
         albums: [],
+        tracks: [],
+        artistName: [],
         loading: true
     }
     componentDidMount = () => {
@@ -28,15 +30,22 @@ class AlbumPage extends Component{
             }).then((album)=>{
                 //console.log("response from fetch", response.json());
                 let albums = album
+                let tracks = album.tracks.data
+                const artistName = album.artist
                 this.setState({
-                    albums: albums
+                    albums: albums,
+                    tracks: tracks,
+                    artistName: artistName
+                    
                 })
-                console.log('new state', this.state.albums)
+                console.log('new state 1', this.state.tracks)
+                console.log('new state album', this.state.albums)
+                console.log('new state album', this.state.artistName)
             })
             .catch(err => {
                 console.log(err);
             });
-            console.log('new state', this.state.albums)
+            
     }
     
     render(){
@@ -61,10 +70,10 @@ class AlbumPage extends Component{
                 alt={this.state.albums.title}
                 />
                 <div className="mt-4 text-center">
-                <p className="album-title">{this.state.albums.label}</p>
+                <p className="album-title">{this.state.albums.title}</p>
                 </div>
                 <div className="text-center">
-                <a href="/artist_page.html?id=${album.artist.id}"><p className="artist-name">{this.state.albums.title}</p></a>
+                <a href="/artist_page.html?id=${album.artist.id}"><p className="artist-name">{this.state.artistName.name}</p></a>
                 </div>
                 <div className="mt-4 text-center">
                 <button id="btnPlay" className="btn btn-success" type="button">
@@ -75,15 +84,21 @@ class AlbumPage extends Component{
             <div className="col-md-8 p-5">
               <div className="row">
                 <div className="col-md-10 mb-5" id="trackList">
-                <div className="py-3 trackHover">
-                    <a
-                        href="#"
-                        className="card-title trackHover px-3"
-                        style={{color: "white"}}
-                        >{this.state.albums.title}</a>
-                    <small className="duration pr-3" style={{color: "white"}}
-                        >{this.state.albums.duration}</small>
-                    </div>
+                {this.state.tracks.map((tracklist)=>{
+                    return(
+                        <div className="py-3 trackHover" key={tracklist.id}>
+                
+                        <a
+                            href="#"
+                            className="card-title trackHover px-3"
+                            style={{color: "white"}}
+                            >{tracklist.title}</a>
+                        <small className="duration pr-3" style={{color: "white"}}
+                            >{(tracklist.duration/60).toFixed(2)}</small>
+                        </div>
+                    )
+                })}
+               
                 </div>
               </div>
             </div>
