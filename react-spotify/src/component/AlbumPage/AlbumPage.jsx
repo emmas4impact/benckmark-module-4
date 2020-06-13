@@ -73,7 +73,8 @@ class AlbumPage extends Component{
                 <p className="album-title">{this.state.albums.title}</p>
                 </div>
                 <div className="text-center">
-                <a href="/artist_page.html?id=${album.artist.id}"><p className="artist-name">{this.state.artistName.name}</p></a>
+                <Link to={"/artistPage/"+ this.state.artistName.id} className="nav-link">Album: {this.state.artistName.name}</Link>
+               
                 </div>
                 <div className="mt-4 text-center">
                 <button id="btnPlay" className="btn btn-success" type="button">
