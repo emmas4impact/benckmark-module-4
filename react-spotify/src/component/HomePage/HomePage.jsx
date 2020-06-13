@@ -199,7 +199,7 @@ class HomePage extends Component{
                             <Gallery
                                
                                 loading={this.state.loading}
-                                songs={this.state.Rock.slice(0, 6)}
+                                songs={this.state.Rock.slice(0, 4)}
                                 
                             />
                                
@@ -219,7 +219,7 @@ class HomePage extends Component{
                             <Gallery
                                
                                loading={this.state.loading}
-                               songs={this.state.Pop.slice(0, 6)}
+                               songs={this.state.Pop.slice(0, 4)}
                                
                            />
                             <div
@@ -238,9 +238,10 @@ class HomePage extends Component{
                             <Gallery
                                
                                loading={this.state.loading}
-                               songs={this.state.Hiphop.slice(0, 6)}
+                               songs={this.state.Hiphop.slice(0, 4)}
                                
                            />
+                            
                             <div
                             className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
                             id="hipHopSection"
