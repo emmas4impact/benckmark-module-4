@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Col, Image, Modal, Button, Spinner } from "react-bootstrap";
+import {Link, withRouter} from 'react-router-dom';
 class ArtistPage extends Component {
     
     state = {
@@ -130,7 +131,8 @@ class ArtistPage extends Component {
                                 <p>
                                   <a href=""> Track: {tracks.title_short}</a>
                                   <br />
-                                  <a href="">Album: {tracks.album.title}</a>
+                                  <Link to={"/album/"+ tracks.album.id} className="nav-link">Album: {tracks.album.title}</Link>
+                                 
                                 </p>
                               </div>
                                     
