@@ -1,5 +1,5 @@
 import {Navbar, Nav, NavItem, Button} from 'react-bootstrap';
-
+import { withRouter} from 'react-router-dom';
 import React, {Component} from 'react';
 
 
@@ -50,7 +50,8 @@ class SideBar extends Component {
                         Library</a
                       >
                     </li>
-                    <li>
+                    {this.props.location.pathname === '/' ? 
+                      <li>
                       <div className="input-group mt-3">
                         <input
                           type="text"
@@ -61,6 +62,7 @@ class SideBar extends Component {
                           aria-describedby="basic-addon2"
                           
                         />
+                        
                         <div
                           className="input-group-append"
                           style={{marginBottom: "4%"}}
@@ -77,7 +79,10 @@ class SideBar extends Component {
                           </button>
                         </div>
                       </div>
-                    </li>
+                    </li> : null  
+                         
+                    }
+                    
                   </ul>
                 </div>
               </div>
@@ -96,4 +101,4 @@ class SideBar extends Component {
         );
     }
 }
-export default SideBar;
+export default withRouter(SideBar);
