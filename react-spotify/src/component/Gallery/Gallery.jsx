@@ -7,7 +7,7 @@ function Gallery({ songs, loading }) {
   return (
     <div>
       <h4>{}</h4>
-      <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-6 row-cols-xl-6 mb-4 no-gutters text-center">
+      <Row className="row-cols-1 row-cols-md-4  mb-4 text-center">
         {loading
           ? [0, 1, 2, 3, 4].map((num, i) => (
               <Col key={i}>
