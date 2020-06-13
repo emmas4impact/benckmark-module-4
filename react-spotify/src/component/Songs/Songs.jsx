@@ -24,15 +24,15 @@ class Songs extends Component {
     return (
       
        
-        <div className="col text-center">
+        <div className="col space-left2 text-center">
             <a href="/album">
               <Image className="img-fluid" src={this.props.song.album.cover_medium} alt={this.props.song.artist.name} />
             </a>
             <p> 
-               <Link to={"/artistPage"+ this.props.song.id} className="nav-link">Album: {this.props.song.album.title}</Link>
+               <Link to={"/album/"+ this.props.song.album.id} className="nav-link">Album: {this.props.song.album.title}</Link>
                
               
-               <Link to={"/album/"+ this.props.song.id} className="nav-link">Artist: {this.props.song.artist.name}</Link>
+               <Link to={"/artistPage/"+ this.props.song.artist.id} className="nav-link">Artist: {this.props.song.artist.name}</Link>
             </p>
         </div>
     

@@ -17,7 +17,7 @@ function Gallery({ songs, loading }) {
               </Col>
             ))
           : songs.map((song) => (
-              <Songs
+              <Songs key={song.id}
                 song={song}
                
                
