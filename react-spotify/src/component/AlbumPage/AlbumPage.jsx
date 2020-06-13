@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { Col, Image, Modal, Button, Spinner } from "react-bootstrap";
 
 class AlbumPage extends Component{

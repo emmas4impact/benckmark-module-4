@@ -38,6 +38,7 @@ class HomePage extends Component{
             Rock: [],
             Hiphop: [],
             Pop: [],
+            searchedMovies: [],
             loading: true,
             error: false,
             comments: [],
@@ -64,6 +65,20 @@ class HomePage extends Component{
               rockRandomArtists.push(artist);
             }
           }
+          const showSearchResult = (searchString) => {
+            fetch("https://deezerdevs-deezer.p.rapidapi.com/search"+ "?q="+ searchString , {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "8275c582bamshd83a3179dd00459p19f0b2jsn94c889368579"
+                }
+            })
+              .then((response) => response.json())
+              .then((responseObject) =>
+                this.setState({ searchedMovies: responseObject.Search })
+              );
+          };
+        
   
           while (popRandomArtists.length < 4) {
             let artist =

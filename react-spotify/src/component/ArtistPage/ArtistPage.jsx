@@ -7,8 +7,16 @@ class ArtistPage extends Component {
         albums: [],
         tracksresponse: [],
         artistName: [],
+        textValue: 'FOLLOW',
         loading: true
     }
+    
+    onPressButton = () => {
+        this.setState({
+          textValue: 'FOLLOWING'
+        })
+        
+      }
     componentDidMount = () => {
         const artistId = this.props.match.params.id;
         let headers = new Headers({
@@ -102,12 +110,24 @@ class ArtistPage extends Component {
                         >
                           PLAY
                         </Button>
-                        <Button
-                          className="btn btn-outline-light mainButton"
-                          id="followButton"
-                        >
-                          FOLLOW
-                        </Button>
+                        {this.onPressButton ? 
+                         <Button
+                         className="btn btn-outline-light mainButton"
+                         id="followButton"
+                         onClick={this.onPressButton}
+                         title= "FOLLOW"
+                        
+                        > {this.state.textValue}</Button>: <Button
+                       className="btn btn-outline-light mainButton"
+                       id="followButton"
+                       onClick={this.onPressButton}
+                       title= "FOLLOW"
+                     > {this.state.textValue}</Button>
+                         
+                         }
+                        
+                       
+                       
                       </div>
                     </div>
                   </div>
