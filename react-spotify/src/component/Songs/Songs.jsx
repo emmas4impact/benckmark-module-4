@@ -20,7 +20,7 @@ class Songs extends Component {
 
   render() {
 
-    console.log('this props', this.props.song)
+   //console.log('this props', this.props.song)
     return (
       
        

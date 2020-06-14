@@ -19,7 +19,7 @@ body {
   flex-flow: column nowrap;
   align-items: flex-start;
   background-color: black;
-  z-index: 1200;
+  z-index: 1;
 }
 
 .navbar.fixed-left .navbar-collapse .navbar-nav a {
@@ -43,7 +43,7 @@ ul {
 }
 
 .nav-btn {
-  margin-bottom: 20px;
+  margin-bottom: 85px;
   text-align: center;
 }
 
@@ -229,4 +229,7 @@ ul {
 
 .mainPage img {
   width: 200px;
+}
+#songInfo{
+  color: white
 }

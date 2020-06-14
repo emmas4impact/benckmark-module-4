@@ -9,7 +9,7 @@ function Gallery({ songs, loading }) {
       <h4>{}</h4>
       <Row className="row-cols-1 row-cols-md-4  mb-4 text-center">
         {loading
-          ? [0, 1, 2, 3, 4].map((num, i) => (
+          ? [0, 1, 2, 3].map((num, i) => (
               <Col key={i}>
                 <Spinner animation="border" role="status" variant="success">
                   <span className="sr-only">Loading...</span>

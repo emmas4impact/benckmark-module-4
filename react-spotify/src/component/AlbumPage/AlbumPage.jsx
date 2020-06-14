@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { Col, Image, Modal, Button, Spinner } from "react-bootstrap";
 
+
 class AlbumPage extends Component{
     state = {
         albums: [],
@@ -9,6 +10,11 @@ class AlbumPage extends Component{
         artistName: [],
         loading: true
     }
+    
+    albumToFooter = (albumId, albumCover, albumLabel, albumTitle) => (
+        this.props.sendAlbum(albumId, albumCover, albumLabel, albumTitle)
+        )
+   
     componentDidMount = () => {
         const albumId = this.props.match.params.id;
         let headers = new Headers({
@@ -38,9 +44,10 @@ class AlbumPage extends Component{
                     artistName: artistName
                     
                 })
-                console.log('new state 1', this.state.tracks)
-                console.log('new state album', this.state.albums)
-                console.log('new state album', this.state.artistName)
+                //console.log('new state 1', this.state.tracks)
+                //console.log('new state album', this.state.albums)
+                //console.log('new state album', this.state.artistName)
+                this.albumToFooter(albumId, albums.cover_small, albums.label, albums.title);
             })
             .catch(err => {
                 console.log(err);
@@ -49,7 +56,7 @@ class AlbumPage extends Component{
     }
     
     render(){
-        
+        console.log('props from app.js', this.props)
         return (
             <>
             <div className="col-12 col-md-9 offset-md-3 mainPage">
@@ -68,12 +75,15 @@ class AlbumPage extends Component{
                 src={this.state.albums.cover_medium}
                 className="card-img img-fluid"
                 alt={this.state.albums.title}
+                
                 />
                 <div className="mt-4 text-center">
                 <p className="album-title">{this.state.albums.title}</p>
                 </div>
                 <div className="text-center">
-                <Link to={"/artistPage/"+ this.state.artistName.id} className="nav-link">Album: {this.state.artistName.name}</Link>
+                <Link to={"/artistPage/"+ this.state.artistName.id} className="nav-link">Album: {this.state.artistName.name}
+                
+                </Link>
                
                 </div>
                 <div className="mt-4 text-center">

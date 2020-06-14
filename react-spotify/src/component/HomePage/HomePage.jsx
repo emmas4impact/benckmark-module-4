@@ -97,7 +97,7 @@ class HomePage extends Component{
               hipHopRandomArtists.push(artist);
             }
           }
-  
+          const rock = [];
           for (let j = 0; j < rockRandomArtists.length; j++) {
             fetch(
               "https://deezerdevs-deezer.p.rapidapi.com/search?q=" +
@@ -114,17 +114,20 @@ class HomePage extends Component{
               })
               .then((artists) => {
                 let songInfo = artists.data;
-                
-                console.log(songInfo)
-                this.setState({Rock : songInfo,loading: false,})
-                console.log('state ', this.state.Rock)
+                rock.push(songInfo[0])
+               // console.log(songInfo)
+                this.setState({Rock : rock,loading: false,})
+               // console.log('state ', this.state.Rock)
+                return rock;
               })
               .catch((error) => {
                 console.log(error);
               });
           }
-  
+          
+          const pop = [];
           for (let j = 0; j < popRandomArtists.length; j++) {
+              
             fetch(
               "https://deezerdevs-deezer.p.rapidapi.com/search?q=" +
                 popRandomArtists[j],
@@ -140,19 +143,20 @@ class HomePage extends Component{
               })
               .then((artists) => {
                 let songInfo = artists.data
+                pop.push(songInfo[0])
                     this.setState({
                         loading: false,
-                        Pop : songInfo
+                        Pop : pop
                     
                     })
     
-                
+                return pop;
               })
               .catch((error) => {
                 console.log(error);
               });
           }
-  
+          const hipHop = [];
           for (let j = 0; j < hipHopRandomArtists.length; j++) {
             fetch(
               "https://deezerdevs-deezer.p.rapidapi.com/search?q=" +
@@ -169,9 +173,10 @@ class HomePage extends Component{
               })
               .then((artists) => {
                 let songInfo = artists.data;
-                this.setState({Hiphop : songInfo,loading: false})
-                //let div = document.querySelector("#hipHopSection");
-                //div.innerHTML += albumCard(songInfo[0]);
+                hipHop.push(songInfo[0])
+                this.setState({Hiphop : hipHop,loading: false})
+                
+               return hipHop;
               })
               .catch((error) => {
                 console.log(error);
@@ -214,7 +219,7 @@ class HomePage extends Component{
                             <Gallery
                                
                                 loading={this.state.loading}
-                                songs={this.state.Rock.slice(0, 4)}
+                                songs={this.state.Rock}
                                 
                             />
                                
@@ -234,7 +239,7 @@ class HomePage extends Component{
                             <Gallery
                                
                                loading={this.state.loading}
-                               songs={this.state.Pop.slice(0, 4)}
+                               songs={this.state.Pop}
                                
                            />
                             <div
@@ -253,7 +258,7 @@ class HomePage extends Component{
                             <Gallery
                                
                                loading={this.state.loading}
-                               songs={this.state.Hiphop.slice(0, 4)}
+                               songs={this.state.Hiphop}
                                
                            />
                             
